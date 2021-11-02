@@ -24,7 +24,6 @@ int isPrime(int n){
 
 int isStrong(int n){
     int num = n;
-    //int digits = countDigits(n);
     int sum = 0;
     while(num > 0){
         int reminder = num % 10;

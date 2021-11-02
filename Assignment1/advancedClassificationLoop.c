@@ -26,8 +26,8 @@ int isArmstrong(int n){
         sum += power(reminder, digits);
         num = num / 10;
     }
-    if(sum == n){return 1;}
-    else{return 0;}
+    if(sum == n){return TRUE;}
+    else{return FALSE;}
 }
 
 
@@ -45,8 +45,8 @@ int isPalindrome(int n){
         if(arrOfDigits[i] == arrOfDigits[j]){
             j--;
         }
-        else{return 0;}
+        else{return FALSE;}
     }
-    return 1;
+    return TRUE;
 }
 

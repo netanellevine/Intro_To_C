@@ -1,38 +1,52 @@
-CC=gcc
+CC=$(CC)
 AR=ar
-#OBJECTS_MAIN=main.o
-#OBJECTS_LIB=NumClass.o
+RECURSION = basicClassification.o advancedClassificationRecursion.o
+LOOP = basicClassification.o advancedClassificationLoop.o
 FLAGS= -Wall -g
 
 
-#make loops
+all: loopd loops recursived recursives maindloop maindrec mains
+
 loops: libclassloops.a
-libclassloops.a: NumClass.o
-	$(AR) -rcs libclassloops.a NumClass.o
-
-#make loopd
 loopd: libclassloops.so
-libclassloops.so: NumClass.o
-	$(CC) -shared -o libclassloops.so NumClass.o
+recursives: libclassrec.a
+recursived: libclassrec.so
 
-#make recursives
-loops: libclassrec.a
-libclassrec.a: NumClass.o
-	$(AR) -rcs libclassrec.a NumClass.o
 
-#make recursived
-loopd: libclassrec.so
-libclassrec.so: NumClass.o
-	$(CC) -shared -o libclassrec.so NumClass.o
-NumClass.o: basicClassification.c advancedClassificationLoop.c NumClass.h
-	$(CC) $(FLAGS) -c basicClassification.c advancedClassificationLoop.c
-#make recursives
-#make recursived
-#make mains
-#make maindloop
-#make maindrec
-#make all
-.PHONY: clean loops
+mains: main.o libclassrec.a
+	$(CC) $(CFLAGS) -o mains main.o libclassrec.a -lm
+
+maindloop: main.o libclassloops.so
+	$(CC) $(CFLAGS) -o maindloop main.o ./libclassloops.so -lm
+
+maindrec: main.o libclassrec.so
+	$(CC) $(CFLAGS) -o maindrec main.o ./libclassrec.so -lm
+
+libclassrec.a: $(RECURSION)
+	ar -rcs libclassrec.a $(RECURSION)
+
+libclassrec.so: $(RECURSION)
+	$(CC) -shared  $(RECURSION) -o libclassrec.so
+
+libclassloops.a: $(LOOP)
+	ar -rcs libclassloops.a $(LOOP)
+
+libclassloops.so: $(LOOP)
+		$(CC) -shared  $(LOOP) -o libclassloops.so
+
+main.o: main.c NumClass.h
+	$(CC) $(CFLAGS) -c main.c
+
+basicClassification.o: basicClassification.c NumClass.h
+	$(CC) $(CFLAGS) -c basicClassification.c
+
+advancedClassificationLoop.o: advancedClassificationLoop.c NumClass.h
+	$(CC) $(CFLAGS) -c advancedClassificationLoop.c
+
+advancedClassificationRecursion.o: advancedClassificationRecursion.c NumClass.h
+	$(CC) $(CFLAGS) -c advancedClassificationRecursion.c
+
+.PHONY: clean loops loopd reccursived reccursives
 #make clean
 clean:
-	rm -f *.o *.a *.so
+	rm -f *.o *.a *.so maindloop maindrec mains
