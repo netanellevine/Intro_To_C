@@ -14,11 +14,11 @@ int isPrime(int n){
     int i = 2;
     while(i <= n/2){
         if(n % i == 0){
-            return 0;
+            return FALSE;
         }
         i++;
     }
-    return 1;
+    return TRUE;
 }
 
 
@@ -30,7 +30,7 @@ int isStrong(int n){
         sum += factorial(reminder);
         num = num / 10;
     }
-    if (sum == n){return 1;}
-    else{return 0;}
+    if (sum == n){return TRUE;}
+    else{return FALSE;}
 }
 

@@ -10,7 +10,7 @@ int main() {
     printf("The Prime numbers between %d to %d are: ", start, end);
     for(i = start; i <= end; i++ ){
         if(isPrime(i) == TRUE){
-            printf("%d. ", i);
+            printf("%d ", i);
         }
     }
     printf("\n");

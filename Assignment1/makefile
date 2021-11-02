@@ -1,4 +1,4 @@
-CC=$(CC)
+CC=gcc
 AR=ar
 RECURSION = basicClassification.o advancedClassificationRecursion.o
 LOOP = basicClassification.o advancedClassificationLoop.o
@@ -23,28 +23,28 @@ maindrec: main.o libclassrec.so
 	$(CC) $(CFLAGS) -o maindrec main.o ./libclassrec.so -lm
 
 libclassrec.a: $(RECURSION)
-	ar -rcs libclassrec.a $(RECURSION)
+	$(AR) -rcs libclassrec.a $(RECURSION)
 
 libclassrec.so: $(RECURSION)
 	$(CC) -shared  $(RECURSION) -o libclassrec.so
 
 libclassloops.a: $(LOOP)
-	ar -rcs libclassloops.a $(LOOP)
+	$(AR) -rcs libclassloops.a $(LOOP)
 
 libclassloops.so: $(LOOP)
 		$(CC) -shared  $(LOOP) -o libclassloops.so
 
 main.o: main.c NumClass.h
-	$(CC) $(CFLAGS) -c main.c
+	$(CC) $(FLAGS) -c main.c
 
 basicClassification.o: basicClassification.c NumClass.h
-	$(CC) $(CFLAGS) -c basicClassification.c
+	$(CC) $(FLAGS) -c basicClassification.c
 
 advancedClassificationLoop.o: advancedClassificationLoop.c NumClass.h
-	$(CC) $(CFLAGS) -c advancedClassificationLoop.c
+	$(CC) $(FLAGS) -c advancedClassificationLoop.c
 
 advancedClassificationRecursion.o: advancedClassificationRecursion.c NumClass.h
-	$(CC) $(CFLAGS) -c advancedClassificationRecursion.c
+	$(CC) $(FLAGS) -c advancedClassificationRecursion.c
 
 .PHONY: clean loops loopd reccursived reccursives
 #make clean
