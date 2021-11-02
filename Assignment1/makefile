@@ -41,7 +41,7 @@ libclassloops.a: $(LOOP)
 	$(AR) -rcs libclassloops.a $(LOOP)
 
 libclassloops.so: $(LOOP)
-		$(CC) -shared  $(LOOP) -o libclassloops.so
+	$(CC) -shared  $(LOOP) -o libclassloops.so
 
 main.o: main.c NumClass.h
 	$(CC) $(FLAGS) -c main.c
