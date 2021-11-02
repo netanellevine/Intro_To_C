@@ -2,11 +2,21 @@
 #include "NumClass.h"
 
 int main() {
-    int start, end, i;
+    int start = 0, end = 0, i;
     printf("Enter the first number: \n");
     scanf("%d", &start);
     printf("Enter the second number: \n");
     scanf("%d", &end);
+        int j = 100;
+        while (start > end && j > 0) {
+            printf("The first number must be smaller than the second number!!\n");
+            printf("Please try again.\n");
+            printf("Enter the first number: \n");
+            scanf("%d", &start);
+            printf("Enter the second number: \n");
+            scanf("%d", &end);
+            j--;
+        }
     printf("The Prime numbers within the range of [%d,%d] are: ", start, end);
     for(i = start; i <= end; i++ ){
         if(isPrime(i) == TRUE){
