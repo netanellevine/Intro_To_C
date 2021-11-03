@@ -3,10 +3,20 @@
 
 int main() {
     int start = 0, end = 0, i;
-    printf("Enter the first number: \n");
+//    printf("Enter the first number: \n");
     scanf("%d", &start);
-    printf("Enter the second number: \n");
+//    printf("Enter the second number: \n");
     scanf("%d", &end);
+//    int j = 100;
+//    while (start > end && j > 0) {
+//        printf("The first number must be smaller than the second number!!\n");
+//        printf("Please try again.\n");
+//        printf("Enter the first number: \n");
+//        scanf("%d", &start);
+//        printf("Enter the second number: \n");
+//        scanf("%d", &end);
+//        j--;
+//    }
     printf("The Armstrong numbers are: ");
     for(i = start; i <= end; i++ ){
         if(isArmstrong(i) == TRUE){
