@@ -3,7 +3,7 @@
 
 int main() {
     int start = 0, end = 0, i;
-//    printf("Enter the first number: \n");
+    printf("Enter the first number: \n");
     scanf("%d", &start);
 //    printf("Enter the second number: \n");
     scanf("%d", &end);
@@ -44,7 +44,7 @@ int main() {
             printf("%d ", i);
         }
     }
-//    printf("\n");
+    printf("\n");
     return 0;
 }
 
