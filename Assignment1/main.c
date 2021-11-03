@@ -17,28 +17,28 @@ int main() {
 //        scanf("%d", &end);
 //        j--;
 //    }
-    printf("The Armstrong numbers are: ");
+    printf("The Armstrong numbers are:");
     for(i = start; i <= end; i++ ){
         if(isArmstrong(i) == TRUE){
             printf("%d ", i);
         }
     }
     printf("\n");
-    printf("The Palindrome numbers are: ");
+    printf("The Palindromes numbers are:");
     for(i = start; i <= end; i++ ){
         if(isPalindrome(i) == TRUE){
             printf("%d ", i);
         }
     }
     printf("\n");
-    printf("The Prime numbers are: ");
+    printf("The Prime numbers are:");
     for(i = start; i <= end; i++ ){
         if(isPrime(i) == TRUE){
             printf("%d ", i);
         }
     }
     printf("\n");
-    printf("The Strong numbers are: ");
+    printf("The Strong numbers are:");
     for(i = start; i <= end; i++ ){
         if(isStrong(i) == TRUE){
             printf("%d ", i);
