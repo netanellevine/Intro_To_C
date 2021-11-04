@@ -30,23 +30,33 @@ int isArmstrong(int n){
     else{return FALSE;}
 }
 
+// I was told to change it because I used the array without knowing it's size.
+//int isPalindrome(int n){
+//    int num = n;
+//    int digits = countDigits(n);
+//    int arrOfDigits[digits];
+//    int i;
+//    for(i = 0; i < digits; i++){
+//        arrOfDigits[i] =  num % 10;
+//        num = num / 10;
+//    }
+//    int j = digits -1;
+//    for(i = 0; i <= digits/2; i++){
+//        if(arrOfDigits[i] == arrOfDigits[j]){
+//            j--;
+//        }
+//        else{return FALSE;}
+//    }
+//    return TRUE;
+//}
 
 int isPalindrome(int n){
-    int num = n;
-    int digits = countDigits(n);
-    int arrOfDigits[digits];
-    int i;
-    for(i = 0; i < digits; i++){
-        arrOfDigits[i] =  num % 10;
-        num = num / 10;
+    int num = n, sum = 0;
+    while (n >= 0){
+        int reminder = n % 10;
+        n = n / 10;
+        sum = sum * 10 + reminder;
     }
-    int j = digits -1;
-    for(i = 0; i <= digits/2; i++){
-        if(arrOfDigits[i] == arrOfDigits[j]){
-            j--;
-        }
-        else{return FALSE;}
-    }
-    return TRUE;
+    if( sum == num){return TRUE;}
+    else{return FALSE;}
 }
-
